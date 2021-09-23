@@ -1,8 +1,7 @@
 package com.example.sbkotlin
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -10,12 +9,26 @@ import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.http.HttpStatus
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-internal class HtmlControllerTest(@Autowired val restTemplate: TestRestTemplate) {
+class HtmlControllerTest(@Autowired val restTemplate: TestRestTemplate) {
 
-    @DisplayName("루트 get test")
+    @BeforeAll
+    fun setUp() {
+        println("before all")
+    }
+
     @Test
-    internal fun getRoot() {
+    fun `블로그 홈 페이지`() {
         val entity = restTemplate.getForEntity<String>("/")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
+    }
+
+    @Test
+    fun test() {
+        println("test")
+    }
+
+    @AfterAll
+    internal fun tearDown() {
+        println("after all")
     }
 }
