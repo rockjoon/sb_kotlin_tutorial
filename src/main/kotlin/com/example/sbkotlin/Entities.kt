@@ -18,6 +18,7 @@ class Article(
 
 @Entity
 class User(
+    var login: String,
     var firstName: String,
     var lastName: String,
     var description: String? = null,
