@@ -1,1 +1,5 @@
-
+blog:
+  title: second spring boot by kotlin
+  banner:
+    title: Warning! Warning!
+    content: this will be down tomorrow

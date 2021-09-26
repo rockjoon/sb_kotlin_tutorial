@@ -1,0 +1,17 @@
+{{> layouts/header}}
+
+<section class="article">
+    <header class="article-header">
+        <h1 class="article-title">{{article.title}}</h1>
+        <p class="article-meta">
+            By <strong>{{article.author.name}}</strong>
+            , On <strong>{{article.createdAt}}</strong>
+        </p>
+    </header>
+    <div class="article-content">
+
+        {{article.content}}
+    </div>
+</section>
+
+{{> layouts/footer}}
